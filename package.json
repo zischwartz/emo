@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/jasmine-node/bin/jasmine-node --coffee --autotest  --watch . --color spec"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +12,8 @@
     "node-emoji": "^1.0.4",
     "underscore": "^1.8.3",
     "strip-ansi": "^3.0.0"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
   }
 }
