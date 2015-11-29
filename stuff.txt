@@ -31,6 +31,26 @@ Total Memory: 4.2 GiB
 Name: 39cbe55d37a4
 
 
+e422055 (HEAD, examples) - Zach Schwartz : added certs dir and node_modules to gitignore (5 weeks ago)
+e57a4df (origin/master, master, bower-cdn) - Zach Schwartz : Merge pull request #67 from oreillymedia/cookie-fix (6 weeks ago)
+8001dc8 (origin/cookie-fix, cookie-fix) - Zach Schwartz : oh right, build (6 weeks ago)
+a31bd65 - Zach Schwartz : added set_url_cookie option, resolves #66 (6 weeks ago)
+e708dd7 - Zach Schwartz : fixed the notebook api url to the api/kernel url, so it actually works, resolves #43 (6 weeks ago)
+5142b4d - Zach Schwartz : working on cookie stickiness (6 weeks ago)
+9364901 - Zach Schwartz : Merge branch 'master' of github.com:oreillymedia/thebe (6 weeks ago)
+04bceaf - Zach Schwartz : hooray, turns out we can prevent the options preflight request that the server hates sometimes, resolves #65 (6 weeks ago)
+ac60887 - Zach Schwartz : cleaning up (6 weeks ago)
+5a4171a - Zach Schwartz : Merge pull request #63 from ngoldbaum/quote-fix (6 weeks ago)
+d1f35ec - Nathan Goldbaum : Fix quoting in example URL (7 weeks ago)
+ee85a89 - Zach Schwartz : Merge pull request #62 from michaelpacer/better_simple_docs (7 weeks ago)
+0292b66 - Zach Schwartz : Merge pull request #61 from ngoldbaum/example-fixes (7 weeks ago)
+81d5bfe - michaelpacer : improved version of the run locally (simple) instructions (7 weeks ago)
+8ef89ad - Nathan Goldbaum : Add comment emphasizing options needed for single-user jupyter server (7 weeks ago)
+14e867f - Nathan Goldbaum : Add mention of python3 http.server instead of SimpleHTTPServer (7 weeks ago)
+3decfd2 - Nathan Goldbaum : Explain how to install bower dependencies (7 weeks ago)
+4997cf0 - Nathan Goldbaum : Adding quotes around allow-origin example for zsh (7 weeks ago)
+934a702 - Zach Schwartz : updated readme a bit (8 weeks ago)
+17685bb - Zach Schwartz : built js (8 weeks ago)
 
 
 https://gist.github.com/runemadsen/3bcd411a64ba06619b44
@@ -69,3 +89,14 @@ var id = "event154";
 var s = crypto.SHA1(namespace + id);
 
 console.log(s) // 131ed4e3df8e287f590c9edafad264bcecfde1b9
+
+
+http://emojipedia.org/faq/
+
+👉 There are a total of 845 emoji characters commonly supported across most platforms. These include emojis up to and including Unicode 6.1.
+
+1,620 emojis are supported in iOS 9.1, a number which includes all regular emojis, country flags, modified emojis and new emoji characters created by joining multiple together - such as the family units.
+
+
+http://emojipedia.org/%F0%9F%90%A4
+http://emojipedia.org/🐤
