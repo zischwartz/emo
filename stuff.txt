@@ -1,4 +1,4 @@
-~/code/emojify
+~/code/emo
 08:09 PM zach@Zachs-MacBook-Air:
 ⚡️ docker ps
 CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                          NAMES
@@ -12,7 +12,7 @@ dd5a83397d84        zischwartz/sparkdemo:withdata     "/bin/sh -c '/bin/bas"   2
 6d6a0c7f7874        jupyter/tmpnb                     "python orchestrate.p"   2 days ago          Up 2 days                                          beaea38e-bcd4-482f-8dba-01e96bb90288-n1/tmpnb
 150dd86ffa03        jupyter/configurable-http-proxy   "configurable-http-pr"   2 days ago          Up 2 days           172.99.70.82:32769->8000/tcp   beaea38e-bcd4-482f-8dba-01e96bb90288-n1/proxy
 
-~/code/emojify
+~/code/emo
 08:12 PM zach@Zachs-MacBook-Air:
 ⚡️ docker info
 Containers: 12

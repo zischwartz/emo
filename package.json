@@ -1,5 +1,5 @@
 {
-  "name": "emojify",
+  "name": "emo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,10 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "node-emoji": "^1.0.4",
+    "underscore": "^1.8.3",
     "strip-ansi": "^3.0.0"
-  },
-  "devDependencies": {
-    "rimraf": "^2.4.4",
-    "underscore": "^1.8.3"
   }
 }

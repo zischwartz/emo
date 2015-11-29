@@ -20,7 +20,7 @@ strip_ansi = require 'strip-ansi'
 # if we then detected for at least two numbers and two letters, this would work well broadly, very inclusive
 # \w[a-zA-Z0-9\-]*\w
 
-class Emojify
+class Emo
   get_data_path: -> path.join process.env["HOME"], ".emo"
   constructor: ->
     try
@@ -44,8 +44,9 @@ class Emojify
 
   # take a string, return array of any strings we think are uuid-like
   detect: (input)->
-    # re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){1,}\S*/g
-    re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){4,}\S*/g # 4, fewer false positives, but doesn't get 7 digit git sha abbreviations
+    # re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){1,}\S*/g # that this one passes shows that the tests suck 
+    re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){4,}\S*/g # 4, fewer false positives, but doesn't get 7 digit git sha abbrs
+    # dd5a83397d84 does not match 
     match = []
     result = []
     while (match = re.exec(input)) isnt null
@@ -90,7 +91,7 @@ class Emojify
 # use _.invert
 
 
-module.exports = Emojify
+module.exports = Emo
 
 # actual uuids v4
 # /[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-4[0-9A-Za-z]{3}-[89ABab][0-9A-Za-z]{3}-[0-9A-Za-z]{12}/g
