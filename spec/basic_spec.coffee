@@ -13,12 +13,6 @@ Emo = require "../emo.coffee"
 # we're testing, so write the file here instead
 process.env["HOME"] = process.env["PWD"]
 
-
-# beforeEach ->
-  # jasmine.addMatchers matchers
-  # rimraf.sync 'temp/'
-  # if not fs.existsSync('temp') then fs.mkdirSync 'temp'
-
 beforeEach ->
   try
     fs.unlinkSync path.join process.env["HOME"], '.emo'
@@ -71,21 +65,15 @@ describe "Emo.detect", ->
 
 
 describe "Emo.recieve", ->
-  it 'should return the input with emoji replacing tokens, including repeats', ->
+  it 'should return the input with emoji replacing tokens, including repeats, and persistence', ->
     emo = new Emo()
     res = emo.receive("blah some 328be45c870c text")
-    console.log "\n"
-    console.log res
-    console.log "\n"
     expect(_.isString res).toBe true
     expect(res.length).toBeLessThan("blah some 12345 text".length);
-
+    # and, test for persistence
     emo = new Emo()
     res2 = emo.receive("blah dd5a83397d84 some 328be45c870c text")
     expect(_.isString res2).toBe true
-    console.log "\n"
-    console.log res2
-    console.log "\n"
     expect(res2.length).toBeLessThan("blah 12345 some 12345 text".length);
 
 

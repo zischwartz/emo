@@ -45,8 +45,10 @@ class Emo
   # take a string, return array of any strings we think are uuid-like
   detect: (input)->
     # re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){1,}\S*/g # that this one passes shows that the tests suck 
-    re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){4,}\S*/g # 4, fewer false positives, but doesn't get 7 digit git sha abbrs
+    # re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){4,}\S*/g # 4, fewer false positives, but doesn't get 7 digit git sha abbrs
     # dd5a83397d84 does not match 
+
+    re = /\b(?=.*\d)(?=.*[a-zA-Z])\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){1,}\b/g # ridic, but seems to work ok
     match = []
     result = []
     while (match = re.exec(input)) isnt null
