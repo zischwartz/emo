@@ -5,6 +5,8 @@ Emo = require "./emo.coffee"
 process.stdin.resume()
 process.stdin.setEncoding 'utf8'
 
+console.log process.argv
+
 emo = new Emo
 
 process.stdin.on 'data', (data) ->

@@ -68,7 +68,7 @@ class Emo
 
   receive: (input)->
     result = @detect input
-    console.log result
+    # console.log result
     write_needed_flag = false
     for token in result
       # have we seen it before?
@@ -81,6 +81,7 @@ class Emo
         re = new RegExp(token,"g")  
         input = input.replace re, emoji
       catch e 
+        console.log "ERROR, can't make a regex token out of"
         console.log e
         console.log token
       
