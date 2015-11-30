@@ -100,3 +100,6 @@ http://emojipedia.org/faq/
 
 http://emojipedia.org/%F0%9F%90%A4
 http://emojipedia.org/🐤
+
+
+https://github.com/andrewjmead/global-npm-seed

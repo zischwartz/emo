@@ -72,22 +72,7 @@ describe "Emo.recieve", ->
     expect(res.length).toBeLessThan("blah some 12345 text".length);
     # and, test for persistence
     emo = new Emo()
-    res2 = emo.receive("blah dd5a83397d84 some 328be45c870c text")
+    res2 = emo.receive("blah dd5a83397d84 some 328be45c870c text b5ut ") # b5ut, testing that we only convert if len > 4
+    # console.log res2
     expect(_.isString res2).toBe true
-    expect(res2.length).toBeLessThan("blah 12345 some 12345 text".length);
-
-
-    # TODO write test for line breaks, why it needed trim
-
-    # bell = new Stringer get_path(), get_delta_filename('nochange')
-    # bell.load get_fixture_file_path('nochange')
-    # result = bell.get_on_with_it()
-    # expect(_.isArray result.diff).toBe true
-    # for a in result.diff
-      # expect(_.isArray a).toBe true
-
-
-#  "test": "./node_modules/jasmine-node/bin/jasmine-node --coffee --autoTest  spec/ --watchFolders src/ --noStackTrace --verbose --captureExceptions",
-
-
-# jasmine-node --coffee spec/AsyncSpec.coffee
+    expect(res2.length).toBeLessThan("blah 12345 some 12345 text b5ut ".length);

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "bin": "./bin"
+  },
   "scripts": {
     "test": "node_modules/jasmine-node/bin/jasmine-node --coffee --autotest  --watch . --color spec"
   },

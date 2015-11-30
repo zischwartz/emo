@@ -21,50 +21,43 @@ strip_ansi = require 'strip-ansi'
 # \w[a-zA-Z0-9\-]*\w
 
 class Emo
-  get_data_path: -> path.join process.env["HOME"], ".emo"
   constructor: ->
     try
       data = fs.readFileSync(@get_data_path(), encoding: "utf8")
-      data = JSON.parse data
-      @store = data
+      @store = JSON.parse data
     catch
       @store = {}
       fs.writeFileSync(@get_data_path(), JSON.stringify(@store))
-      # console.log "file no existo, creating"
-  
-  write_store: ->
-    fs.writeFileSync(@get_data_path(), JSON.stringify(@store))
-  get_store: ->  @store
-  set: (key, value)-> @store[key] = value
-  get: (key)-> @store[key]
 
+  get_data_path: -> path.join process.env["HOME"], ".emo"
+  
+  write_store: -> fs.writeFileSync(@get_data_path(), JSON.stringify(@store))
+  
+  get_store: ->  @store
+  
+  get_store_inverted: ->  _.invert @store
+  
+  set: (key, value)-> @store[key] = value
+  
+  get: (key)-> @store[key]
 
   delete_emo_data_file: ->
     fs.unlinkSync(@get_data_path())
 
-  # take a string, return array of any strings we think are uuid-like
+  # Take a string, return array of any strings we think are uuid-like
   detect: (input)->
-    # re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){1,}\S*/g # that this one passes shows that the tests suck 
-    # re = /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){4,}\S*/g # 4, fewer false positives, but doesn't get 7 digit git sha abbrs
-    # dd5a83397d84 does not match 
-
-    re = /\b(?=.*\d)(?=.*[a-zA-Z])\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){1,}\b/g # ridic, but seems to work ok
+    input = strip_ansi input
+    # re = /\b\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))+\b/g # ridic, but seems to work ok, basically a number and a letter 
+    re = /\b\S*(?:\S*(?:[a-zA-Z]\S*[0-9])|(?:[0-9]\S*[a-zA-Z]))+\b/g # above, but non capturing groups?
     match = []
     result = []
     while (match = re.exec(input)) isnt null
-      if @more_tests match[0]
-        result.push @clean match[0]
-    result
-  # helpers for @detect
-  more_tests: (input)-> not /https?:\/\//.test(input)
-  # remove punctuation, todo it'd be better to only do this for the ends
+      if @more_tests match[0] then result.push match[0]
+    return result
 
-  clean: (input) -> 
-    input = strip_ansi input
-    input = input.replace(/("|'|:|;|\.)/g, '')# input.replace(/("|'|:|;|\.)$/g, '').replace(/^("|'|:|;|\.)/g, '')
-    input.replace(/(\(|\()/g, '')
-
-  # input.replace(/("|'|:|;|\.)$/g, '').replace(/^("|'|:|;|\.)/g, '')
+  # helper
+  more_tests: (input)-> 
+    not /https?:\/\//.test(input) and input.length > 4
 
   receive: (input)->
     result = @detect input
@@ -88,6 +81,12 @@ class Emo
       if write_needed_flag then @write_store()
     return input
 
+  lookup: (input)->
+    emoji = @get(input)
+    if emoji isnt undefined 
+      return emoji
+    else
+      return @get_store_inverted()[input]
 
 # could store last seen, as well as the name, no not name, we get that from loading the emoji
 
