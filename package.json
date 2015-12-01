@@ -1,8 +1,9 @@
 {
   "name": "emo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Convert human unfriendly strings to emoji in your terminal",
+  "repository": "https://github.com/zischwartz/emo",
+  "main": "./emo.coffee",
   "directories": {
     "bin": "./bin"
   },

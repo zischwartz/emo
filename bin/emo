@@ -1,20 +1,22 @@
 #!/usr/bin/env node
-require('./../emo.coffee');
+require('coffee-script/register');
+Emo = require('./../emo.coffee');
 
-// OLD
-// #!/usr/bin/env coffee
-// # require 'coffee-script/register'
-// Emo = require "./emo.coffee"
+var emo = new Emo();
 
-// process.stdin.resume()
-// process.stdin.setEncoding 'utf8'
+if (process.argv.length > 2) {
+  var res = emo.lookup(process.argv[2]);
+  if (res) {
+    process.stdout.write(res);
+  }
+  process.exit(0);
+} else
+  process.stdin.resume();
+  process.stdin.setEncoding('utf8');
 
-// console.log process.argv
-
-// emo = new Emo
-
-// process.stdin.on 'data', (data) ->
-//   process.stdout.write emo.receive data
+  process.stdin.on('data', function(data) {
+    process.stdout.write(emo.receive(data));
+  });
 
 // # process.on 'SIGINT', ->
 // #   console.log('Got a SIGINT. Goodbye cruel world')

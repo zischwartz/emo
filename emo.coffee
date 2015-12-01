@@ -1,5 +1,3 @@
-# v4 uuid matcher
-# /[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-4[0-9A-Za-z]{3}-[89ABab][0-9A-Za-z]{3}-[0-9A-Za-z]{12}/g
 
 fs = require "fs"
 path = require "path"
@@ -8,17 +6,6 @@ _ = require "underscore"
 node_emoji = require 'node-emoji'
 strip_ansi = require 'strip-ansi'
 
-# lens = _.mapObject node_emoji.emoji, (x)->x.length
-# console.log lens 
-
-# http://stackoverflow.com/a/28212720
-# modified, works ok
-# check for quotes
-# \S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){4,}\S*
-# /\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z])){4,}\S*/g
-
-# if we then detected for at least two numbers and two letters, this would work well broadly, very inclusive
-# \w[a-zA-Z0-9\-]*\w
 
 class Emo
   constructor: ->
@@ -33,9 +20,9 @@ class Emo
   
   write_store: -> fs.writeFileSync(@get_data_path(), JSON.stringify(@store))
   
-  get_store: ->  @store
+  get_store: -> @store
   
-  get_store_inverted: ->  _.invert @store
+  get_store_inverted: -> _.invert @store
   
   set: (key, value)-> @store[key] = value
   
