@@ -20,9 +20,9 @@ class Emo
   
   write_store: -> fs.writeFileSync(@get_data_path(), JSON.stringify(@store))
   
-  get_store: ->  @store
+  get_store: -> @store
   
-  get_store_inverted: ->  _.invert @store
+  get_store_inverted: -> _.invert @store
   
   set: (key, value)-> @store[key] = value
   
