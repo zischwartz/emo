@@ -5,7 +5,7 @@ Emo = require('./../emo.coffee');
 var emo = new Emo();
 
 if (process.argv.length > 2) {
-  var res = emo.lookup(process.argv[2]);
+  var res = emo.lookup(process.argv[2], process.argv[3]);
   if (res) {
     process.stdout.write(res);
   }

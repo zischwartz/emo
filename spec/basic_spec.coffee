@@ -15,6 +15,7 @@ process.env["HOME"] = process.env["PWD"]
 
 beforeEach ->
   try
+    # delete the .emo file if it exists before each test
     fs.unlinkSync path.join process.env["HOME"], '.emo'
 
 

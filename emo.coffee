@@ -58,7 +58,7 @@ class Emo
         emoji = _.sample node_emoji.emoji
         @set token, emoji
       try
-        re = new RegExp(token,"g")  
+        re = new RegExp @escape_regex token, "g"
         input = input.replace re, emoji
       catch e 
         console.log "ERROR, can't make a regex token out of"
@@ -68,17 +68,18 @@ class Emo
       if write_needed_flag then @write_store()
     return input
 
-  lookup: (input)->
+  # http://stackoverflow.com/a/1144788/83859
+  escape_regex: (str)->str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1")
+
+  # these arguments are from argv, hence the weird
+  lookup: (input, get_name=false)->
+    if input is "-i" then input = get_name 
     emoji = @get(input)
     if emoji isnt undefined 
       return emoji
     else
-      return @get_store_inverted()[input]
-
-# could store last seen, as well as the name, no not name, we get that from loading the emoji
-
-# use _.invert
-
+      if get_name then return _.invert(node_emoji.emoji)[get_name]
+      else return @get_store_inverted()[input]
 
 module.exports = Emo
 
