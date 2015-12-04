@@ -1,5 +1,9 @@
 # Emo
-## Convert human unfriendly strings to emoji in your terminal
+[![Emoji](https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg)](https://www.youtube.com/watch?v=gAotWVmVRS4)
+[![License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](http://choosealicense.com/licenses/mit/)
+
+Convert human unfriendly strings to emoji in your terminal
+
 
 ## What? Why?
 There are a lot of human unfriendly strings out there, for instance, UUIDs and SHA1s. 
@@ -38,7 +42,7 @@ emo 🐤
 ```
 
 ```bash
-docker kill $(emo 🐤)
+docker kill $(emo 👾)
 ```
 
 ## Caveats
