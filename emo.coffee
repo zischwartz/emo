@@ -65,7 +65,7 @@ class Emo
         console.log e
         console.log token
       
-      if write_needed_flag then @write_store()
+    if write_needed_flag then @write_store()
     return input
 
   # http://stackoverflow.com/a/1144788/83859
