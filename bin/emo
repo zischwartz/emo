@@ -4,20 +4,26 @@ Emo = require('./../emo.coffee');
 
 var emo = new Emo();
 
-if (process.argv.length > 2) {
-  var res = emo.lookup(process.argv[2]);
+if (process.argv.length > 2 && process.argv[2] !="-s") {
+  // lookup mode
+  var res = emo.lookup(process.argv[2], process.argv[3]);
   if (res) {
     process.stdout.write(res);
   }
   process.exit(0);
-} else
+} else { 
+  // piping mode
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
 
   process.stdin.on('data', function(data) {
-    process.stdout.write(emo.receive(data));
+    process.stdout.write(emo.receive(data, process.argv[2]));
   });
 
-// # process.on 'SIGINT', ->
-// #   console.log('Got a SIGINT. Goodbye cruel world')
-// #   process.exit(0)
+  process.stdin.on('readable', function(data) {
+    // Nothing mode, just exit
+    if (this.read() === null) {
+      process.exit(0);
+    }
+  });
+}

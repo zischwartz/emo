@@ -35,7 +35,7 @@ class Emo
   detect: (input)->
     input = strip_ansi input
     # re = /\b\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))+\b/g # ridic, but seems to work ok, basically a number and a letter 
-    re = /\b\S*(?:\S*(?:[a-zA-Z]\S*[0-9])|(?:[0-9]\S*[a-zA-Z]))+\b/g # above, but non capturing groups?
+    re = /\b\S*(?:\S*(?:[a-zA-Z]\S*[0-9])|(?:[0-9]\S*[a-zA-Z]))+\b/g # above, but non capturing groups
     match = []
     result = []
     while (match = re.exec(input)) isnt null
@@ -46,9 +46,8 @@ class Emo
   more_tests: (input)-> 
     not /https?:\/\//.test(input) and input.length > 4
 
-  receive: (input)->
+  receive: (input, opt)->
     result = @detect input
-    # console.log result
     write_needed_flag = false
     for token in result
       # have we seen it before?
@@ -57,28 +56,29 @@ class Emo
         write_needed_flag = true
         emoji = _.sample node_emoji.emoji
         @set token, emoji
-      try
-        re = new RegExp(token,"g")  
+      re = new RegExp @escape_regex token, "g"
+      if opt isnt "-s"
         input = input.replace re, emoji
-      catch e 
-        console.log "ERROR, can't make a regex token out of"
-        console.log e
-        console.log token
+      else
+        len = token.length-emoji.length+2
+        spaces = [Array(Math.floor(len/2)).join(" "), Array(Math.ceil(len/2)).join(" ")]
+        input = input.replace re, "#{spaces[0]}#{emoji}#{spaces[1]}"
       
-      if write_needed_flag then @write_store()
+    if write_needed_flag then @write_store()
     return input
 
-  lookup: (input)->
+  # http://stackoverflow.com/a/1144788/83859
+  escape_regex: (str)->str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1")
+
+  # these arguments are from argv, hence the weird
+  lookup: (input, get_name=false)->
+    if input is "-i" then input = get_name 
     emoji = @get(input)
     if emoji isnt undefined 
       return emoji
     else
-      return @get_store_inverted()[input]
-
-# could store last seen, as well as the name, no not name, we get that from loading the emoji
-
-# use _.invert
-
+      if get_name then return _.invert(node_emoji.emoji)[get_name]
+      else return @get_store_inverted()[input]
 
 module.exports = Emo
 
