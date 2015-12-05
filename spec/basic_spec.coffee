@@ -66,14 +66,35 @@ describe "Emo.detect", ->
 
 
 describe "Emo.recieve", ->
+  it 'should retain spacing', ->
+    emo = new Emo()
+    input = "blah some 9328be45c870c text 1c57ad2aa3cd"
+    res1 = emo.receive(input)
+    expect(res1.length).toEqual(input.length)
+
+
   it 'should return the input with emoji replacing tokens, including repeats, and persistence', ->
     emo = new Emo()
-    res = emo.receive("blah some 328be45c870c text")
-    expect(_.isString res).toBe true
-    expect(res.length).toBeLessThan("blah some 12345 text".length);
+    res1 = emo.receive("blah some 9328be45c870c text 1c57ad2aa3cd")
+    expect(_.isString res1).toBe true
+    res1_s = res1.split(" ")
+    [first, second] = [res1_s[2], res1_s[4]]
+    expect(first).not.toBeUndefined()
+    expect(second).not.toBeUndefined()
+    expect(first).not.toEqual("")
+    expect(second).not.toEqual("")
+
+    # expect(res1.length).toBeLessThan("blah some 12345 text".length);
+
     # and, test for persistence
     emo = new Emo()
-    res2 = emo.receive("blah dd5a83397d84 some 328be45c870c text b5ut ") # b5ut, testing that we only convert if len > 4
-    # console.log res2
+    res2 = emo.receive("blah dd5a83397d84 | 9328be45c870c some 328be45c870c text 1c57ad2aa3cd b5ut ") # b5ut, testing that we only convert if len > 4
     expect(_.isString res2).toBe true
-    expect(res2.length).toBeLessThan("blah 12345 some 12345 text b5ut ".length);
+    res2_s = res2.split(" ")
+    expect(first).toEqual res2_s[3]
+    expect(second).toEqual res2_s[7]
+
+    # expect(res2.length).toBeLessThan("blah 12345 some 12345 text b5ut ".length);
+
+
+
