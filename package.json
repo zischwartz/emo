@@ -1,17 +1,20 @@
 {
-  "name": "emo",
-  "version": "0.0.1",
+  "name": "emo2",
+  "version": "0.0.5",
   "description": "Convert human unfriendly strings to emoji in your terminal",
-  "repository": "https://github.com/zischwartz/emo",
-  "main": "./emo.coffee",
-  "directories": {
-    "bin": "./bin"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zischwartz/emo"
+  },
+  "bin": {
+    "emo": "./bin/emo"
   },
   "scripts": {
-    "test": "node_modules/jasmine-node/bin/jasmine-node --coffee --autotest  --watch . --color spec"
+    "test": "node_modules/jasmine-node/bin/jasmine-node --coffee --color spec",
+    "atest": "node_modules/jasmine-node/bin/jasmine-node --coffee --autotest  --watch . --color spec"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Zach Schwartz",
+  "license": "MIT",
   "dependencies": {
     "coffee-script": "^1.10.0",
     "node-emoji": "^1.0.4",
@@ -20,5 +23,13 @@
   },
   "devDependencies": {
     "jasmine-node": "^1.14.5"
-  }
+  },
+  "keywords": [
+    "emoticons",
+    "emoji",
+    "emojis",
+    "uuid",
+    "human",
+    "sha1"
+  ]
 }
