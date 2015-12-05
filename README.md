@@ -14,7 +14,7 @@ When you have to work with a couple of these strings, it's manageable; most prog
 `emo` requires nodejs. Once you've installed node (which now comes bundled with `npm`) you can install `emo` by running
 
 ```bash 
-sudo npm install -g emo
+sudo npm install -g emo2
 
 ```
 
