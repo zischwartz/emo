@@ -10,7 +10,8 @@
     "emo": "./bin/emo"
   },
   "scripts": {
-    "test": "node_modules/jasmine-node/bin/jasmine-node --coffee --autotest  --watch . --color spec"
+    "test": "node_modules/jasmine-node/bin/jasmine-node --coffee --color spec",
+    "atest": "node_modules/jasmine-node/bin/jasmine-node --coffee --autotest  --watch . --color spec"
   },
   "author": "Zach Schwartz",
   "license": "MIT",

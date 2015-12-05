@@ -1,5 +1,5 @@
 # Emo
-<p><img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"> <img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></p>
+<p><a href="https://travis-ci.org/zischwartz/emo"><img src="https://travis-ci.org/zischwartz/emo.svg?branch=master"></a> <img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"> <img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></p>
 
 Convert human unfriendly strings to emoji in your terminal
 
