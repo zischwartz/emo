@@ -4,6 +4,7 @@
 	<meta charset="utf-8" /> 
 
 	<title>👾 Emo</title>
+       <meta name="description" content="Convert human unfriendly strings to emoji in your terminal" />
 	<link href='https://fonts.googleapis.com/css?family=Poiret+One|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<style>
 
@@ -11,8 +12,10 @@
 		background-color: #FDFDFD;
 		color: #1D1D1D;
 	}
-	h1 {
+	h1, h2 {
 		font-family: 'Poiret One';
+		text-align: center;
+
 	}
 	p, h3, ul, pre {
 		font-family: 'Open Sans', sans-serif;
@@ -23,8 +26,13 @@
 
 	h1 {
 		font-size: 9em;
-		text-align: center;
-		margin-bottom: 0.5em;
+		margin: 0.2em;
+	}
+	h2 {
+		font-size: 3em;
+		margin-bottom: 1.5em;
+		/*margin: 0.9em;*/
+
 	}
 
 	h3 {
@@ -37,13 +45,14 @@
 <body>
 
 	<h1>emo</h1>
-	<p><img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"> <img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></p>
+	<h2>👾</h2>
+	<p><a href="https://travis-ci.org/zischwartz/emo"><img src="https://travis-ci.org/zischwartz/emo.svg?branch=master"></a> <img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"> <img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></p>	
 	<p>Convert human unfriendly strings to emoji in your terminal.</p>
-	<p><img id="gif" src="http://fat.gfycat.com/DiligentTalkativeGoldeneye.gif" alt="silly example gif" title="" /></p>
-
 	<h3 id="whatwhy">What? Why?</h3>
 
 	<p>There are a lot of human unfriendly strings out there, for instance, UUIDs and SHA1s. </p>
+
+	<p><img id="gif" src="http://fat.gfycat.com/DiligentTalkativeGoldeneye.gif" alt="silly example gif" title="" /></p>
 
 	<p>When you have to work with a couple of these strings, it&#8217;s manageable; most programmers I know see <code>f985dab7704a</code> and remember that as &#8220;the one that starts with f9.&#8221; And tab completion helps. But when you start to have tens or hundreds of these strings, it starts to get messy, and we lose the ability to quickly look at some output and see what node/commit/container/image is being referenced.</p>
 
@@ -96,7 +105,7 @@
 	<li>You probably shouldn&#8217;t use this for anything serious, though I&#8217;m having a hard time thinking how one even would.</li>
 	</ul>
 
-
+<a href="https://github.com/zischwartz/emo"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 </body>
 </html>
 
