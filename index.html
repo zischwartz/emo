@@ -1,4 +1,105 @@
-<link href='https://fonts.googleapis.com/css?family=Poiret+One|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" /> 
 
-font-family: 'Poiret One', cursive;
-font-family: 'Open Sans', sans-serif;
+	<title>👾 Emo</title>
+	<link href='https://fonts.googleapis.com/css?family=Poiret+One|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<style>
+
+	body {
+		background-color: #FDFDFD;
+		color: #1D1D1D;
+	}
+	h1 {
+		font-family: 'Poiret One';
+	}
+	p, h3, ul, pre {
+		font-family: 'Open Sans', sans-serif;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	h1 {
+		font-size: 9em;
+		text-align: center;
+		margin-bottom: 0.5em;
+	}
+
+	h3 {
+		font-size: 2em;
+	}
+
+
+	</style>
+</head>
+<body>
+
+	<h1>emo</h1>
+	<p><img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"> <img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></p>
+	<p>Convert human unfriendly strings to emoji in your terminal.</p>
+	<p><img id="gif" src="http://fat.gfycat.com/DiligentTalkativeGoldeneye.gif" alt="silly example gif" title="" /></p>
+
+	<h3 id="whatwhy">What? Why?</h3>
+
+	<p>There are a lot of human unfriendly strings out there, for instance, UUIDs and SHA1s. </p>
+
+	<p>When you have to work with a couple of these strings, it&#8217;s manageable; most programmers I know see <code>f985dab7704a</code> and remember that as &#8220;the one that starts with f9.&#8221; And tab completion helps. But when you start to have tens or hundreds of these strings, it starts to get messy, and we lose the ability to quickly look at some output and see what node/commit/container/image is being referenced.</p>
+
+	<h3 id="installation">Installation</h3>
+
+	<p><code>emo</code> requires nodejs. Once you&#8217;ve installed node (which now comes bundled with <code>npm</code>) you can install <code>emo</code> by running</p>
+
+	<pre><code>sudo npm install -g emo2</code></pre>
+
+	<h3 id="usage">Usage</h3>
+
+	<p>You can pipe stdout to emo, and emo will replace human unfriendly strings with emoji, and store that data to <code>~/.emo</code>.</p>
+
+	<p><code>bash
+	git log | emo
+	</code></p>
+
+	<p><code>bash
+	docker ps | emo
+	</code></p>
+
+	<p>Then you can look stuff up in either direction, like so:</p>
+
+	<p><code>bash
+	emo f985dab7704a
+	</code></p>
+
+	<p><code>bash
+	emo 🐤
+	</code></p>
+
+	<p><code>bash
+	docker kill $(emo 👾)
+	</code></p>
+
+	<h3 id="options">Options</h3>
+
+	<p>When piping, you can add <code>-s</code> to have emo add spacing equivalent to the length of the string being replaced.</p>
+
+	<p><code>
+	gitlg | emo -s
+	</code></p>
+
+	<h3 id="caveats">Caveats</h3>
+
+	<ul>
+	<li>Unique to you, each emoji is assigned randomly. It&#8217;d be cool if they were computed/encoded from the string, but I couldn&#8217;t figure out a good way to do that without needing to make the replacement many emoji long.</li>
+	<li>Some emoji look very similar</li>
+	<li>My regex for detecting &#8220;human unfriendly strings&#8221; leaves a lot to be desired</li>
+	<li>You probably shouldn&#8217;t use this for anything serious, though I&#8217;m having a hard time thinking how one even would.</li>
+	</ul>
+
+
+</body>
+</html>
+
+
+
+
