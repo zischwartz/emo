@@ -30,7 +30,7 @@ git log | emo
 docker ps | emo
 ```
 
-
+Then you can look stuff up in either direction, like so:
 
 
 ```bash
@@ -45,8 +45,17 @@ emo 🐤
 docker kill $(emo 👾)
 ```
 
+# Options
+
+When piping, you can add `-s` to have emo add spacing equivalent to the length of the string being replaced.
+
+```
+gitlg | emo -s
+```
+
 ## Caveats
 
-- Unique to you, each emoji is assigned
+- Unique to you, each emoji is assigned randomly. It'd be cool if were computed/encoded from the string, but I couldn't figure out a good way to do that without needing to make the replacement many emoji long.
 - Some emoji look very similar
-- My regex for detecting "human unfriendly strings" leaves a lot to be desired. 
+- My regex for detecting "human unfriendly strings" leaves a lot to be desired
+- You probably shouldn't use this for anything serious, though I'm having a hard time thinking about how one even would.

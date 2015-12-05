@@ -47,7 +47,6 @@ class Emo
     not /https?:\/\//.test(input) and input.length > 4
 
   receive: (input, opt)->
-    # console.log node_emoji.emoji
     result = @detect input
     write_needed_flag = false
     for token in result
