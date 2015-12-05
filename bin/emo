@@ -4,7 +4,7 @@ Emo = require('./../emo.coffee');
 
 var emo = new Emo();
 
-if (process.argv.length > 2) {
+if (process.argv.length > 2 && process.argv[2] !="-s") {
   // lookup mode
   var res = emo.lookup(process.argv[2], process.argv[3]);
   if (res) {
@@ -17,7 +17,7 @@ if (process.argv.length > 2) {
   process.stdin.setEncoding('utf8');
 
   process.stdin.on('data', function(data) {
-    process.stdout.write(emo.receive(data));
+    process.stdout.write(emo.receive(data, process.argv[2]));
   });
 
   process.stdin.on('readable', function(data) {
