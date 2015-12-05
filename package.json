@@ -1,11 +1,11 @@
 {
   "name": "emo2",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Convert human unfriendly strings to emoji in your terminal",
   "repository": {
-     "type": "git",
-     "url": "https://github.com/zischwartz/emo"
-   },
+    "type": "git",
+    "url": "https://github.com/zischwartz/emo"
+  },
   "bin": {
     "emo": "./bin/emo"
   },
@@ -24,11 +24,11 @@
     "jasmine-node": "^1.14.5"
   },
   "keywords": [
-      "emoticons",
-      "emoji",
-      "emojis",
-      "uuid",
-      "human",
-      "sha1"
-    ]
+    "emoticons",
+    "emoji",
+    "emojis",
+    "uuid",
+    "human",
+    "sha1"
+  ]
 }
