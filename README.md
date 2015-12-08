@@ -13,7 +13,7 @@ When you have to work with a couple of these strings, it's manageable; most prog
 `emo` requires nodejs. Once you've installed node (which now comes bundled with `npm`) you can install `emo` by running
 
 ```bash 
-sudo npm install -g emo2
+npm install -g emo2
 
 ```
 
@@ -60,4 +60,5 @@ gitlg | emo -s
 - Unique to you, each emoji is assigned randomly. It'd be cool if they were computed/encoded from the string, but I couldn't figure out a good way to do that without needing to make the replacement many emoji long.
 - Some emoji look very similar
 - My regex for detecting "human unfriendly strings" leaves a lot to be desired
-- You probably shouldn't use this for anything serious, though I'm having a hard time thinking how one even would.
+- You probably shouldn't use this for anything serious, though I'm having a hard time thinking how one even would
+- Only tested on a Mac
