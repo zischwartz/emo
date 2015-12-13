@@ -82,9 +82,18 @@ class Emo
       if get_name then return _.invert(node_emoji.emoji)[input]
       else return @get_store_inverted()[input]
 
+
+  sample: (n=1)=>
+    res = _.sample node_emoji.emoji, n
+    res.join(" ")
+
   # For running as cli
   run: =>
-    if argv["_"].length and not argv["s"] or argv["i"]
+    if argv["_"][0] is "sample"
+       res = @sample argv["_"][1]
+      if res then process.stdout.write res
+
+    else if argv["_"].length and not argv["s"] or argv["i"]
       if argv["i"] is true then res = @lookup(argv["_"][0], true)
       else if argv["i"]    then res = @lookup(argv["i"], true)
       else                      res = @lookup(argv["_"][0])
