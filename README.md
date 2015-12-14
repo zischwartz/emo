@@ -55,6 +55,14 @@ When piping, you can add `-s` to have emo add spacing equivalent to the length o
 gitlg | emo -s
 ```
 
+When you see an emoji and want to know what the hell it's called, you can get [node-emoji's](https://www.npmjs.com/package/node-emoji) name for it with the `-i` option 
+
+```
+emo 📠 -i
+```
+
+There's also a sample mode, which just returns random emoji, which you can "use" like so `emo sample 100`
+
 ### Caveats
 
 - Unique to you, each emoji is assigned randomly. It'd be cool if they were computed/encoded from the string, but I couldn't figure out a good way to do that without needing to make the replacement many emoji long.
