@@ -98,17 +98,21 @@ docker kill $(emo 👾)
 
 <p>When piping, you can add <code>-s</code> to have emo add spacing equivalent to the length of the string being replaced.</p>
 
-<div class="highlight"><pre lang="">gitlg | emo -s
-</pre></div>
+<pre><code>
+gitlg | emo -s
+</code></pre>
 
 <p>When you see an emoji and want to know what the hell it's called, you can get <a href="https://www.npmjs.com/package/node-emoji">node-emoji's</a> name for it with the <code>-i</code> option </p>
 
-<div class="highlight"><pre lang="">emo 📠 -i
-</pre></div>
+<pre><code>
+emo 📠 -i
+</code></pre>
 
 <p>There's also a sample mode, which just returns random emoji, which you can "use" like so:</p>
 
-<p><div class="highlight"><pre lang="">emo sample 10<br /></pre></div>`</p>
+<pre><code>
+emo sample 10
+</code></pre>
 
 <h3>Caveats</h3>
 
