@@ -39,6 +39,21 @@
 		font-size: 2em;
 	}
 
+	li {
+		margin: 20px auto;
+	}
+
+	pre {
+	    background-color: #EFEEEE;
+	    padding: 0px 15px 20px 15px;
+	}
+
+	img#big {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+
 
 	</style>
 </head>
@@ -52,12 +67,11 @@
 <p>Convert human unfriendly strings to emoji in your terminal</p>
 
 <h3>What? Why?</h3>
-
 <p>There are a lot of human unfriendly strings out there, for instance, UUIDs and SHA1s. </p>
-<p><img id="gif" src="http://fat.gfycat.com/DiligentTalkativeGoldeneye.gif" alt="silly example gif" title="" /></p>
+<img id="big" src="emo_docker_inspect.gif" alt="silly docker example gif" title="" />
 
-
-<p>When you have to work with a couple of these strings, it's manageable; most programmers I know see <code>f985dab7704a</code> and remember that as "the one that starts with f9." And tab completion helps. But when you start to have tens or hundreds of these strings, it starts to get messy, and we lose the ability to quickly look at some output and see what node/commit/container/image is being referenced.</p>
+<p>When you have to work with a couple of these strings, it's manageable; most programmers I know see <code>f985dab7704a</code> and remember that as "the one that starts with f9." And tab completion helps. </p>
+<p>But when you start to have tens or hundreds of these strings, it starts to get messy, and we lose the ability to quickly look at some output and see what node/commit/container/image is being referenced.</p>
 
 <h3>Installation</h3>
 
@@ -94,6 +108,9 @@ emo 🐤
 docker kill $(emo 👾)
 </code></pre>
 
+
+<p><img id="gif" src="http://fat.gfycat.com/DiligentTalkativeGoldeneye.gif" alt="silly example gif" title="" /></p>
+
 <h3>Options</h3>
 
 <p>When piping, you can add <code>-s</code> to have emo add spacing equivalent to the length of the string being replaced.</p>
@@ -124,8 +141,7 @@ emo sample 10
 <li>Only tested on a Mac</li>
 </ul>
 
-<p><em>created by <a href="http://zachschwartz.com/">zach schwartz</a></em></p>
-
+<p style="text-align: center; margin-top:200px; margin-bottom: 50px;"><em>created by <a href="http://zachschwartz.com/">zach schwartz</a></em></p>
 
 <a href="https://github.com/zischwartz/emo"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
  <script src="emoji_image_replace.js"></script>
