@@ -46,67 +46,85 @@
 
 	<h1>emo</h1>
 	<h2>👾</h2>
-	<p><a href="https://travis-ci.org/zischwartz/emo"><img src="https://travis-ci.org/zischwartz/emo.svg?branch=master"></a> <img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"> <img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></p>	
-	<p>Convert human unfriendly strings to emoji in your terminal.</p>
-	<h3 id="whatwhy">What? Why?</h3>
 
-	<p>There are a lot of human unfriendly strings out there, for instance, UUIDs and SHA1s. </p>
+<p><a href="https://travis-ci.org/zischwartz/emo"><img src="https://travis-ci.org/zischwartz/emo.svg?branch=master"></a> <a href="https://www.youtube.com/watch?v=gAotWVmVRS4"><img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"></a> <a href="http://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></a></p>
 
-	<p><img id="gif" src="http://fat.gfycat.com/DiligentTalkativeGoldeneye.gif" alt="silly example gif" title="" /></p>
+<p>Convert human unfriendly strings to emoji in your terminal</p>
 
-	<p>When you have to work with a couple of these strings, it&#8217;s manageable; most programmers I know see <code>f985dab7704a</code> and remember that as &#8220;the one that starts with f9.&#8221; And tab completion helps. But when you start to have tens or hundreds of these strings, it starts to get messy, and we lose the ability to quickly look at some output and see what node/commit/container/image is being referenced.</p>
+<h3>What? Why?</h3>
 
-	<h3 id="installation">Installation</h3>
+<p>There are a lot of human unfriendly strings out there, for instance, UUIDs and SHA1s. </p>
+<p><img id="gif" src="http://fat.gfycat.com/DiligentTalkativeGoldeneye.gif" alt="silly example gif" title="" /></p>
 
-	<p><code>emo</code> requires nodejs. Once you&#8217;ve installed node (which now comes bundled with <code>npm</code>) you can install <code>emo</code> by running</p>
 
-	<pre><code>npm install -g emo2</code></pre>
+<p>When you have to work with a couple of these strings, it's manageable; most programmers I know see <code>f985dab7704a</code> and remember that as "the one that starts with f9." And tab completion helps. But when you start to have tens or hundreds of these strings, it starts to get messy, and we lose the ability to quickly look at some output and see what node/commit/container/image is being referenced.</p>
 
-	<h3 id="usage">Usage</h3>
+<h3>Installation</h3>
 
-	<p>You can pipe stdout to emo, and emo will replace human unfriendly strings with emoji, and store that data to <code>~/.emo</code>.</p>
+<p><code>emo</code> requires nodejs. Once you've installed node (which now comes bundled with <code>npm</code>) you can install <code>emo</code> by running</p>
 
-	<p><code>bash
-	git log | emo
-	</code></p>
+<pre><code>
+npm install -g emo2
 
-	<p><code>bash
-	docker ps | emo
-	</code></p>
+</code></pre>
 
-	<p>Then you can look stuff up in either direction, like so:</p>
+<h3>Usage</h3>
 
-	<p><code>bash
-	emo f985dab7704a
-	</code></p>
+<p>You can pipe stdout to emo, and emo will replace human unfriendly strings with emoji, and store that data to <code>~/.emo</code>.</p>
 
-	<p><code>bash
-	emo 🐤
-	</code></p>
+<pre><code>
+git log | emo
+</code></pre>
 
-	<p><code>bash
-	docker kill $(emo 👾)
-	</code></p>
+<pre><code>
+docker ps | emo
+</code></pre>
 
-	<h3 id="options">Options</h3>
+<p>Then you can look stuff up in either direction, like so:</p>
 
-	<p>When piping, you can add <code>-s</code> to have emo add spacing equivalent to the length of the string being replaced.</p>
+<pre><code>
+emo f985dab7704a
+</code></pre>
 
-	<p><code>
-	gitlg | emo -s
-	</code></p>
+<pre><code>
+emo 🐤
+</code></pre>
 
-	<h3 id="caveats">Caveats</h3>
+<pre><code>
+docker kill $(emo 👾)
+</code></pre>
 
-	<ul>
-	<li>Unique to you, each emoji is assigned randomly. It&#8217;d be cool if they were computed/encoded from the string, but I couldn&#8217;t figure out a good way to do that without needing to make the replacement many emoji long.</li>
-	<li>Some emoji look very similar</li>
-	<li>My regex for detecting &#8220;human unfriendly strings&#8221; leaves a lot to be desired</li>
-	<li>You probably shouldn&#8217;t use this for anything serious, though I&#8217;m having a hard time thinking how one even would.</li>
-	</ul>
+<h3>Options</h3>
+
+<p>When piping, you can add <code>-s</code> to have emo add spacing equivalent to the length of the string being replaced.</p>
+
+<div class="highlight"><pre lang="">gitlg | emo -s
+</pre></div>
+
+<p>When you see an emoji and want to know what the hell it's called, you can get <a href="https://www.npmjs.com/package/node-emoji">node-emoji's</a> name for it with the <code>-i</code> option </p>
+
+<div class="highlight"><pre lang="">emo 📠 -i
+</pre></div>
+
+<p>There's also a sample mode, which just returns random emoji, which you can "use" like so:</p>
+
+<p><div class="highlight"><pre lang="">emo sample 10<br /></pre></div>`</p>
+
+<h3>Caveats</h3>
+
+<ul>
+<li>Unique to you, each emoji is assigned randomly. It'd be cool if they were computed/encoded from the string, but I couldn't figure out a good way to do that without needing to make the replacement many emoji long.</li>
+<li>Some emoji look very similar</li>
+<li>My regex for detecting "human unfriendly strings" leaves a lot to be desired</li>
+<li>You probably shouldn't use this for anything serious, though I'm having a hard time thinking how one even would</li>
+<li>Only tested on a Mac</li>
+</ul>
+
+<p><em>created by <a href="http://zachschwartz.com/">zach schwartz</a></em></p>
+
 
 <a href="https://github.com/zischwartz/emo"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
-    <script src="emoji_image_replace.js"></script>
+ <script src="emoji_image_replace.js"></script>
 </body>
 </html>
 
