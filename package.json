@@ -1,6 +1,6 @@
 {
   "name": "emo2",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Convert human unfriendly strings to emoji in your terminal",
   "repository": {
     "type": "git",
