@@ -61,7 +61,11 @@ When you see an emoji and want to know what the hell it's called, you can get [n
 emo 📠 -i
 ```
 
-There's also a sample mode, which just returns random emoji, which you can "use" like so `emo sample 100`
+There's also a sample mode, which just returns random emoji, which you can "use" like so:
+
+```
+emo sample 10
+````
 
 ### Caveats
 
