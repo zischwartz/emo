@@ -1,5 +1,5 @@
 # Emo
-<p><a href="https://travis-ci.org/zischwartz/emo"><img src="https://travis-ci.org/zischwartz/emo.svg?branch=master"></a> <img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"> <img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></p>
+<p><a href="https://travis-ci.org/zischwartz/emo"><img src="https://travis-ci.org/zischwartz/emo.svg?branch=master"></a> <a href="https://www.youtube.com/watch?v=gAotWVmVRS4"><img src="https://img.shields.io/badge/emo-%E2%9C%94%EF%B8%8E_%F0%9F%98%82_%E2%AD%90%EF%B8%8F_%F0%9F%90%96_(totally emo)-blue.svg"></a> <a href="http://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/badge/license-MIT%20License-blue.svg"></a></p>
 
 Convert human unfriendly strings to emoji in your terminal
 
@@ -74,3 +74,6 @@ emo sample 10
 - My regex for detecting "human unfriendly strings" leaves a lot to be desired
 - You probably shouldn't use this for anything serious, though I'm having a hard time thinking how one even would
 - Only tested on a Mac
+
+
+<em>created by [zach schwartz](http://zachschwartz.com/)</em>
