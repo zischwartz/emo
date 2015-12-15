@@ -6,15 +6,18 @@ _ = require "underscore"
 node_emoji = require 'node-emoji'
 strip_ansi = require 'strip-ansi'
 
+argv = require('minimist')(process.argv.slice(2))
 
 class Emo
-  constructor: ->
+  constructor: (is_cli)->
     try
       data = fs.readFileSync(@get_data_path(), encoding: "utf8")
       @store = JSON.parse data
     catch
       @store = {}
       fs.writeFileSync(@get_data_path(), JSON.stringify(@store))
+
+    if is_cli then @run()
 
   get_data_path: -> path.join process.env["HOME"], ".emo"
   
@@ -34,7 +37,6 @@ class Emo
   # Take a string, return array of any strings we think are uuid-like
   detect: (input)->
     input = strip_ansi input
-    # re = /\b\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))+\b/g # ridic, but seems to work ok, basically a number and a letter 
     re = /\b\S*(?:\S*(?:[a-zA-Z]\S*[0-9])|(?:[0-9]\S*[a-zA-Z]))+\b/g # above, but non capturing groups
     match = []
     result = []
@@ -46,7 +48,7 @@ class Emo
   more_tests: (input)-> 
     not /https?:\/\//.test(input) and input.length > 4
 
-  receive: (input, opt)->
+  receive: (input, spacing)->
     result = @detect input
     write_needed_flag = false
     for token in result
@@ -57,7 +59,7 @@ class Emo
         emoji = _.sample node_emoji.emoji
         @set token, emoji
       re = new RegExp @escape_regex token, "g"
-      if opt isnt "-s"
+      if not spacing
         input = input.replace re, emoji
       else
         len = token.length-emoji.length+2
@@ -72,15 +74,40 @@ class Emo
 
   # these arguments are from argv, hence the weird
   lookup: (input, get_name=false)->
-    if input is "-i" then input = get_name 
+    # console.log input, get_name
     emoji = @get(input)
     if emoji isnt undefined 
       return emoji
     else
-      if get_name then return _.invert(node_emoji.emoji)[get_name]
+      if get_name then return _.invert(node_emoji.emoji)[input]
       else return @get_store_inverted()[input]
 
-module.exports = Emo
 
-# actual uuids v4
-# /[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-4[0-9A-Za-z]{3}-[89ABab][0-9A-Za-z]{3}-[0-9A-Za-z]{12}/g
+  sample: (n=1)=>
+    res = _.sample node_emoji.emoji, n
+    res.join(" ")
+
+  # For running as cli
+  run: =>
+    if argv["_"][0] is "sample"
+       res = @sample argv["_"][1]
+      if res then process.stdout.write res
+
+    else if argv["_"].length and not argv["s"] or argv["i"]
+      if argv["i"] is true then res = @lookup(argv["_"][0], true)
+      else if argv["i"]    then res = @lookup(argv["i"], true)
+      else                      res = @lookup(argv["_"][0])
+      
+      if res then process.stdout.write res
+      process.exit 0
+    else
+      # piping mode
+      process.stdin.resume()
+      process.stdin.setEncoding 'utf8'
+      process.stdin.on 'data', (data) =>
+        process.stdout.write @receive(data, argv["s"])
+      process.stdin.on 'readable', (data) ->
+        # Nothing mode, just exit
+        if @read() is null then process.exit 0
+
+module.exports = Emo

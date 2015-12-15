@@ -1,6 +1,6 @@
 {
   "name": "emo2",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Convert human unfriendly strings to emoji in your terminal",
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "coffee-script": "^1.10.0",
+    "minimist": "^1.2.0",
     "node-emoji": "^1.0.4",
     "strip-ansi": "^3.0.0",
     "underscore": "^1.8.3"
