@@ -7,7 +7,9 @@ Convert human unfriendly strings to emoji in your terminal
 ### What? Why?
 There are a lot of human unfriendly strings out there, for instance, UUIDs and SHA1s. 
 
-When you have to work with a couple of these strings, it's manageable; most programmers I know see `f985dab7704a` and remember that as "the one that starts with f9." And tab completion helps. But when you start to have tens or hundreds of these strings, it starts to get messy, and we lose the ability to quickly look at some output and see what node/commit/container/image is being referenced.
+When you have to work with a couple of these strings, it's manageable; most programmers I know see `f985dab7704a` and remember that as "the one that starts with f9." And tab completion helps. 
+
+But when you start to have tens or hundreds of these strings, it starts to get messy, and we lose the ability to quickly look at some output and see what node/commit/container/image is being referenced.
 
 ### Installation
 `emo` requires nodejs. Once you've installed node (which now comes bundled with `npm`) you can install `emo` by running
@@ -76,4 +78,3 @@ emo sample 10
 - Only tested on a Mac
 
 
-<em>created by [zach schwartz](http://zachschwartz.com/)</em>
